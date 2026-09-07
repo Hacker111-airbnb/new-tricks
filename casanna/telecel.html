@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telecel Data Bundles - CHEAPEST DATA LINK</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="loader" class="loader-wrapper">
+        <div class="loader">
+            <div class="loader-spinner">
+                <div class="spinner-dot"></div>
+                <div class="spinner-dot"></div>
+                <div class="spinner-dot"></div>
+            </div>
+            <span class="loader-text">CHEAPEST DATA LINK</span>
+        </div>
+    </div>
+
+    <div id="content">
+        <header class="header-main">
+            <div class="container">
+                <div class="logo" onclick="goHome()">
+                    <div class="logo-icon-wrap"><span>⚡</span></div>
+                    <div>
+                        <h1>CHEAPEST DATA LINK</h1>
+                        <p class="tagline">Instant. Affordable. Reliable.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <div class="network-header telecel-header">
+                <div class="network-badge">TLC</div>
+                <h2>Telecel Data Packages</h2>
+                <p>Tap a package to buy</p>
+            </div>
+
+            <div class="dropdown-wrap" id="dropdown-wrap">
+                <label class="dropdown-label">Select a Data Package</label>
+                <div class="dropdown" id="data-dropdown" onclick="toggleDropdown()">
+                    <div class="dropdown-selected" id="dropdown-selected">
+                        <span id="dropdown-text">Choose package...</span>
+                        <span class="dropdown-arrow" id="dropdown-arrow">▾</span>
+                    </div>
+                    <div class="dropdown-list" id="dropdown-list"></div>
+                </div>
+                <button class="btn-buy-now" id="btn-buy-now" onclick="buySelected()" disabled>Buy Now</button>
+            </div>
+
+            <section class="help-section">
+                <a href="mailto:pure.gold.achievement@gmail.com" class="help-link">For help, click here</a>
+            </section>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="mtn.html" class="nav-item mtn-nav">
+                <div class="nav-dot mtn-dot"></div>
+                <span>MTN</span>
+            </a>
+            <a href="telecel.html" class="nav-item telecel-nav active">
+                <div class="nav-dot telecel-dot"></div>
+                <span>Telecel</span>
+            </a>
+            <a href="tigo.html" class="nav-item tigo-nav">
+                <div class="nav-dot tigo-dot"></div>
+                <span>Tigo</span>
+            </a>
+        </nav>
+    </div>
+
+    <div id="payment-modal" class="modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header-strip"></div>
+            <div class="modal-handle"></div>
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-icon-wrap"></div>
+            <h2>Buy Data</h2>
+            <div class="selected-package" id="selected-info">
+                <h3 id="package-name"></h3>
+                <p id="package-price"></p>
+            </div>
+            <form id="payment-form" onsubmit="processPayment(event)">
+                <div class="form-group">
+                    <label for="phone-number">Your Phone Number</label>
+                    <input type="tel" id="phone-number" placeholder="0241234567">
+                    <small>We'll call you if needed</small>
+                </div>
+                <div class="form-group">
+                    <label for="data-number">Data Number</label>
+                    <input type="tel" id="data-number" placeholder="0241234567">
+                    <small>Number to receive the data</small>
+                </div>
+                <button type="submit" class="btn-pay">Continue to Payment</button>
+            </form>
+            <div id="payment-feedback" class="payment-feedback"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/packages.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</body>
+</html>
